@@ -76,6 +76,28 @@ html, body {
   text-overflow: ellipsis;
 }
 
+/* ── Drag-and-drop overlay ──────────────────────────────────────────── */
+#drop-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(125, 179, 216, 0.15);
+  border: 3px dashed var(--accent);
+  color: var(--accent);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#drop-overlay.active {
+  opacity: 1;
+}
+
 /* ── MapLibre control overrides (dark theme) ────────────────────────── */
 .maplibregl-ctrl-group {
   background: var(--panel) !important;

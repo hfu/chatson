@@ -13,6 +13,7 @@ import { LayerControl } from 'maplibre-gl-layer-control';
 import 'maplibre-gl-layer-control/style.css';
 import { Protocol } from 'pmtiles';
 import { layers, DARK } from '@protomaps/basemaps';
+import { initDragDrop } from './dragdrop.js';
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -167,3 +168,8 @@ map.on('mouseleave', () => {
 });
 
 export { map };
+
+// ── Drag-and-drop ZIP extraction ─────────────────────────────────────────────
+
+// Attach drag-and-drop handling to the map container once the DOM is ready.
+initDragDrop(document.getElementById('map'));
