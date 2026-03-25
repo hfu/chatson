@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@protomaps/basemaps": "^5.7.2",
+    "@turf/truncate": "^7.3.4",
     "jszip": "^3.10.1",
     "maplibre-gl": "^5.21.0",
     "maplibre-gl-layer-control": "^0.14.1",

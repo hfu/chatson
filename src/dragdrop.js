@@ -3,18 +3,18 @@
  *
  * Attaches drag-and-drop event listeners to the map container element.
  * Shows a visual overlay while a file is being dragged over the map,
- * then delegates to extractAndLog() on successful drop.
+ * then delegates to a caller-provided handler on successful drop.
  */
-
-import { extractAndLog } from './zip.js';
 
 /**
  * Initialise drag-and-drop handling on the given container element.
  *
  * @param {HTMLElement} container - The element to use as the drop target
  *   (typically the #map div).
+ * @param {(file: File) => Promise<void>} onZipFile - Callback invoked when a
+ *   .zip file is dropped.
  */
-export function initDragDrop(container) {
+export function initDragDrop(container, onZipFile) {
   // Create the visual drop-zone overlay (hidden by default).
   const overlay = document.createElement('div');
   overlay.id = 'drop-overlay';
@@ -50,6 +50,11 @@ export function initDragDrop(container) {
     }
 
     console.log('Processing ZIP file:', file.name);
-    await extractAndLog(file);
+
+    try {
+      await onZipFile(file);
+    } catch (err) {
+      console.error('Failed to process dropped ZIP file:', err);
+    }
   });
 }

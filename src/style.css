@@ -38,8 +38,8 @@ html, body {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   color: var(--text);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
@@ -117,4 +117,233 @@ html, body {
 
 .maplibregl-ctrl-attrib a {
   color: var(--accent) !important;
+}
+
+.chatson-data-control {
+  margin: 10px;
+}
+
+.chatson-data-control__panel {
+  min-width: 220px;
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.chatson-data-control__title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chatson-data-control__subheading {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(232, 232, 232, 0.66);
+}
+
+.chatson-data-control__toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chatson-data-control__toggle input {
+  accent-color: var(--accent);
+}
+
+.chatson-data-control__button {
+  appearance: none;
+  border: 1px solid rgba(125, 179, 216, 0.45);
+  background: rgba(125, 179, 216, 0.12);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.chatson-data-control__button:hover:not(:disabled) {
+  background: rgba(125, 179, 216, 0.22);
+  border-color: rgba(125, 179, 216, 0.65);
+}
+
+.chatson-data-control__button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.chatson-data-control__mode-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.chatson-data-control__mode-button {
+  appearance: none;
+  border: 1px solid rgba(125, 179, 216, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(232, 232, 232, 0.82);
+  border-radius: 999px;
+  padding: 7px 8px;
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.chatson-data-control__mode-button[data-state="active"] {
+  background: rgba(125, 179, 216, 0.22);
+  border-color: rgba(125, 179, 216, 0.6);
+  color: var(--text);
+}
+
+.chatson-data-control__mode-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.chatson-data-control__range-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.chatson-data-control__range-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(232, 232, 232, 0.82);
+}
+
+.chatson-data-control__range {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.chatson-data-control__summary,
+.chatson-data-control__message {
+  line-height: 1.4;
+  font-size: 0.78rem;
+}
+
+.chatson-data-control__summary {
+  color: rgba(232, 232, 232, 0.78);
+}
+
+.chatson-data-control__message[data-state="error"] {
+  color: #ff9d9d;
+}
+
+.chatson-data-control__message[data-state="info"] {
+  color: var(--accent);
+}
+
+.maplibregl-popup-content {
+  background: rgba(243, 246, 248, 0.97);
+  color: #182026;
+  border: 1px solid rgba(24, 32, 38, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.maplibregl-popup-tip {
+  border-top-color: rgba(243, 246, 248, 0.97) !important;
+  border-bottom-color: rgba(243, 246, 248, 0.97) !important;
+}
+
+.maplibregl-popup-close-button {
+  color: #23313a;
+  width: 34px;
+  height: 34px;
+  font-size: 22px;
+  line-height: 30px;
+  padding: 0;
+  text-align: center;
+}
+
+.chatson-popup {
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+}
+
+.chatson-popup__meta,
+.chatson-popup__coords {
+  font-size: 0.75rem;
+  color: rgba(24, 32, 38, 0.72);
+  line-height: 1.4;
+}
+
+.chatson-popup__body {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  word-break: break-word;
+  color: #25333c;
+}
+
+.chatson-popup__context-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(24, 32, 38, 0.58);
+}
+
+.chatson-popup__context {
+  white-space: pre-wrap;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #1c2a33;
+  background: rgba(20, 32, 40, 0.05);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.chatson-popup__link {
+  color: #2f6f93;
+  text-decoration: none;
+}
+
+.chatson-popup__link:hover {
+  text-decoration: underline;
+}
+
+.chatson-popup__json {
+  max-height: 220px;
+  overflow: auto;
+  margin: 0;
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(20, 32, 40, 0.08);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.chatson-popup__editable-text {
+  display: inline-block;
+  min-width: 2ch;
+  max-width: 100%;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: #fff8dc;
+  color: #182026;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chatson-popup__message {
+  font-size: 0.72rem;
+  color: #275c79;
 }
